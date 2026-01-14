@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Shotz | We're like ninjas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Typography Setup */
+        h1, h2, h3, .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+        body, p, a, span, button {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Animation for fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Dark Glassmorphism */
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.6); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 165, 0, 0.15); /* Subtle Orange Border */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Remove default details marker */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        /* Tooltip for copy confirmation */
+        .copy-tooltip {
+            position: absolute;
+            top: -25px;
+            right: 0;
+            background: #f97316;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .show-tooltip { opacity: 1; }
+    </style>
+</head>
+<body class="bg-black min-h-screen text-white flex items-center justify-center p-4 relative overflow-x-hidden">
+
+    <div class="fixed inset-0 -z-30 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-[url('background.png')] bg-cover bg-center bg-no-repeat blur-[1px] scale-[1.02]"></div>
+        <div class="absolute inset-0 bg-black/75"></div>
+    </div>
+
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-20 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-orange-600/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-yellow-600/10 rounded-full blur-[100px]"></div>
+    </div>
+
+    <div class="glass-panel md:bg-none md:backdrop-blur-0 md:border-x-0 md:border-b-0 md:shadow-none w-full max-w-5xl rounded-2xl p-6 md:p-0 animate-fade-in relative z-10 flex flex-col md:flex-row gap-6 border-t-4 border-t-orange-500">
+        
+        <div class="w-full md:w-5/12 md:glass-panel md:rounded-2xl md:p-8 flex flex-col items-center md:items-start text-center md:text-left justify-between h-full">
+            
+            <div class="w-full flex flex-col items-center md:items-start">
+                <div class="mb-6 relative">
+                    <div class="w-32 h-32 rounded-full p-1 bg-gradient-to-tr from-orange-600 via-yellow-400 to-orange-500 relative shadow-[0_0_30px_rgba(249,115,22,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-orange-500 to-yellow-400 rounded-full blur-xl opacity-60 -z-10"></div>
+                        <div class="w-full h-full rounded-full bg-black p-0.5 overflow-hidden relative z-10">
+                             <img src="logo.png" alt="Signature Shotz Logo" class="w-full h-full rounded-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl font-extrabold tracking-tight text-white mb-2 leading-none">
+                    Signature Shotz
+                </h1>
+                
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-orange-500/10 border border-orange-500/30 whitespace-nowrap">
+                    <p class="text-orange-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] brand-font">
+                        We're like ninjas but with cameras
+                    </p>
+                </div>
+
+                <div class="mb-2 md:mb-0">
+                    <h2 class="text-xl font-bold text-white mb-3 tracking-wide">WELCOME TO SIGNATURE SHOTZ</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed font-normal opacity-90">
+                        We create professional wedding films, photography, and cinematic videos that tell powerful stories. From weddings to corporate and creative projects. We combine aerial drone videography to deliver visually compelling content.  <p> </p> <span class="text-yellow-500 font-semibold">  Quality, Creativity, and Commitment</span> define our work.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hidden md:block mt-8 pt-6 border-t border-gray-800 w-full text-left">
+                <p class="text-gray-500 text-xs uppercase tracking-wider mb-2 font-bold text-orange-500/80">Address</p>
+                <p class="text-gray-400 text-xs tracking-wide">Bashundhara R\A, Zip code-1229, Dhaka, Bangladesh</p>
+                <div class="mt-4 text-[10px] text-gray-600">
+                    &copy; 2026 Signature Shotz. All rights reserved.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w-full md:w-7/12 md:glass-panel md:rounded-2xl md:p-8 flex flex-col justify-center h-full">
+            
+            <div class="w-full space-y-3 md:space-y-2">
+                
+                <a href="https://www.facebook.com/signatureshotzofficial" target="_blank" class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm">Facebook</span>
+                    </div>
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </a>
+
+                <a href="https://www.instagram.com/signature.shotz" target="_blank" class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-gradient-to-tr group-hover:from-yellow-500 group-hover:via-red-500 group-hover:to-purple-600 transition-all duration-300">
+                            <i class="fab fa-instagram text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm">Instagram</span>
+                    </div>
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </a>
+
+                <a href="https://www.behance.net/signatureofficial" target="_blank" class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-[#1769ff] transition-colors duration-300">
+                            <i class="fab fa-behance text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm">Behance (Portfolio)</span>
+                    </div>
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </a>
+
+                <a href="https://youtube.com/@signatureshotz-1k?si=ykVVcOJ--kgYfiYx" target="_blank" class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-red-600 transition-colors duration-300">
+                            <i class="fab fa-youtube text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm">YouTube</span>
+                    </div>
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </a>
+
+                <a href="https://www.linkedin.com/company/signature-shotz/" target="_blank" class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm">LinkedIn</span>
+                    </div>
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </a>
+
+                <div class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1 relative">
+                    <a href="https://wa.me/8801626717967" target="_blank" class="flex items-center gap-4 flex-grow">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-green-600 transition-colors duration-300">
+                            <i class="fab fa-whatsapp text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm leading-tight">WhatsApp</span>
+                            <span class="text-[10px] md:text-xs text-gray-400 group-hover:text-gray-300 font-mono">+880 1626-717967</span>
+                        </div>
+                    </a>
+
+                    <button onclick="copyToClipboard(event, '+8801626717967', this)" class="ml-2 w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors border border-gray-700 relative z-20" title="Copy WhatsApp Number">
+                        <i class="fas fa-copy text-xs"></i>
+                        <span class="copy-tooltip">Copied!</span>
+                    </button>
+                    
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none absolute right-16 md:right-14">→</span>
+                </div>
+                
+                <div class="group flex items-center justify-between px-5 py-4 md:py-3 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-orange-500 rounded-xl transition-all duration-300 transform hover:-translate-y-1 relative">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=signatureshotz.official@gmail.com" target="_blank" class="flex items-center gap-4 flex-grow">
+                        <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-red-500 transition-colors duration-300">
+                            <i class="fas fa-envelope text-lg md:text-base text-gray-300 group-hover:text-white"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-medium text-gray-200 group-hover:text-white text-base md:text-sm leading-tight">Gmail</span>
+                            <span class="text-[10px] md:text-xs text-gray-400 group-hover:text-gray-300 font-mono">signatureshotz.official@gmail.com</span>
+                        </div>
+                    </a>
+                    
+                    <button onclick="copyToClipboard(event, 'signatureshotz.official@gmail.com', this)" class="ml-2 w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors border border-gray-700 relative z-20" title="Copy Email">
+                        <i class="fas fa-copy text-xs"></i>
+                        <span class="copy-tooltip">Copied!</span>
+                    </button>
+                    
+                    <span class="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none absolute right-16 md:right-14">→</span>
+                </div>
+
+                <details class="group w-full bg-neutral-900/80 border border-neutral-800 rounded-xl overflow-hidden transition-all duration-300 open:border-orange-500/50 open:ring-1 open:ring-orange-500/30">
+                    <summary class="flex items-center justify-between px-5 py-4 md:py-3 cursor-pointer hover:bg-neutral-800 transition-colors">
+                         <div class="flex items-center gap-4">
+                             <div class="w-9 h-9 md:w-8 md:h-8 flex items-center justify-center bg-neutral-800 rounded-lg group-hover:bg-orange-600 transition-colors duration-300 text-orange-500 group-hover:text-white">
+                                 <i class="fas fa-phone text-lg md:text-base"></i>
+                             </div>
+                             <span class="font-semibold text-gray-200 group-hover:text-white group-open:text-orange-500 transition-colors text-base md:text-sm">Call The Team Members</span>
+                         </div>
+                         <span class="text-orange-500 transition-transform duration-300 group-open:rotate-180">▼</span>
+                    </summary>
+                    
+                    <div class="bg-black/40 p-3 space-y-2 border-t border-neutral-800">
+                        
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-neutral-800/50 hover:bg-orange-500/20 border border-transparent hover:border-orange-500/50 transition-all group/item">
+                            <a href="tel:+8801629933457" class="flex flex-col text-left flex-grow">
+                                <span class="text-sm font-bold text-gray-200">Risul Islam Rifat (Managing Director)</span>
+                                <span class="text-xs text-gray-400 font-mono tracking-wide">+880 162-9933457</span>
+                            </a>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyToClipboard(event, '01629933457', this)" class="w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-700 hover:bg-neutral-600 text-gray-300 transition-colors relative" title="Copy Number">
+                                    <i class="fas fa-copy text-xs"></i>
+                                    <span class="copy-tooltip">Copied!</span>
+                                </button>
+                                <a href="tel:+8801629933457" class="w-8 h-8 flex items-center justify-center bg-orange-600 hover:bg-orange-500 rounded-full text-white transition-colors">
+                                     <i class="fas fa-phone text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-neutral-800/50 hover:bg-orange-500/20 border border-transparent hover:border-orange-500/50 transition-all group/item">
+                            <a href="tel:+8801976814774" class="flex flex-col text-left flex-grow">
+                                <span class="text-sm font-bold text-gray-200">Jahidul Islam Dihaz (C E O)</span>
+                                <span class="text-xs text-gray-400 font-mono tracking-wide">+880 197-6814774</span>
+                            </a>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyToClipboard(event, '01976814774', this)" class="w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-700 hover:bg-neutral-600 text-gray-300 transition-colors relative" title="Copy Number">
+                                    <i class="fas fa-copy text-xs"></i>
+                                    <span class="copy-tooltip">Copied!</span>
+                                </button>
+                                <a href="tel:+8801976814774" class="w-8 h-8 flex items-center justify-center bg-orange-600 hover:bg-orange-500 rounded-full text-white transition-colors">
+                                     <i class="fas fa-phone text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-neutral-800/50 hover:bg-orange-500/20 border border-transparent hover:border-orange-500/50 transition-all group/item">
+                            <a href="tel:+8801905055664" class="flex flex-col text-left flex-grow">
+                                <span class="text-sm font-bold text-gray-200">Tahmid Abir (Manager)</span>
+                                <span class="text-xs text-gray-400 font-mono tracking-wide">+880 190-5055664</span>
+                            </a>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyToClipboard(event, '01905055664', this)" class="w-8 h-8 flex items-center justify-center rounded-lg bg-neutral-700 hover:bg-neutral-600 text-gray-300 transition-colors relative" title="Copy Number">
+                                    <i class="fas fa-copy text-xs"></i>
+                                    <span class="copy-tooltip">Copied!</span>
+                                </button>
+                                <a href="tel:+8801905055664" class="w-8 h-8 flex items-center justify-center bg-orange-600 hover:bg-orange-500 rounded-full text-white transition-colors">
+                                     <i class="fas fa-phone text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+
+            <div class="w-full flex justify-center mt-6 mb-12">
+                <div class="relative px-6 py-3 rounded-xl border border-yellow-500/50 bg-yellow-500/10 shadow-[0_0_15px_rgba(234,179,8,0.4)] backdrop-blur-sm">
+                    <p class="text-xs uppercase tracking-wider font-bold text-yellow-500 text-center">
+                        Please contact us for further information and access to our detailed portfolio
+                    </p>
+                </div>
+            </div>
+
+            <div class="block md:hidden mt-0 pt-6 border-t border-gray-800 w-full text-center">
+                <p class="text-gray-500 text-xs uppercase tracking-wider mb-2 font-bold text-orange-500/80">Address</p>
+                <p class="text-gray-400 text-xs tracking-wide">Bashundhara R\A, Zip code-1229, Dhaka, Bangladesh</p>
+                <div class="mt-4 text-[10px] text-gray-600">
+                    &copy; 2026 Signature Shotz. All rights reserved
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(event, text, buttonElement) {
+            // Stop the click from triggering the parent link (especially for email/phone wrappers)
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Copy text
+            navigator.clipboard.writeText(text).then(() => {
+                // Find tooltip and icon within the clicked button
+                const tooltip = buttonElement.querySelector('.copy-tooltip');
+                const icon = buttonElement.querySelector('i');
+                
+                // Show visual feedback
+                if (tooltip) tooltip.classList.add('show-tooltip');
+                if (icon) {
+                    icon.classList.remove('fa-copy');
+                    icon.classList.add('fa-check');
+                    icon.classList.add('text-green-500');
+                }
+
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    if (tooltip) tooltip.classList.remove('show-tooltip');
+                    if (icon) {
+                        icon.classList.remove('fa-check');
+                        icon.classList.remove('text-green-500');
+                        icon.classList.add('fa-copy');
+                    }
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
